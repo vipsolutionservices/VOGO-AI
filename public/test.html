@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vogo Chatbot - Phase A & B Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f0f0f0;
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #667eea;
+      margin-top: 0;
+    }
+    .phase-badge {
+      display: inline-block;
+      background: #d4edda;
+      color: #155724;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin: 10px 5px 20px 0;
+      font-weight: 600;
+    }
+    .phase-b-badge {
+      background: #cfe2ff;
+      color: #084298;
+    }
+    p {
+      line-height: 1.6;
+      color: #333;
+    }
+    .test-section {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #667eea;
+    }
+    .test-section h3 {
+      margin-top: 0;
+      color: #667eea;
+    }
+    .test-command {
+      background: #2d3748;
+      color: #68d391;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      margin: 8px 0;
+      font-size: 13px;
+    }
+    ul {
+      line-height: 1.8;
+    }
+    .highlight {
+      background: #fff3cd;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+    .note {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Vogo Chatbot - Phase A & B</h1>
+    
+    <span class="phase-badge">✅ Phase A Complete</span>
+    <span class="phase-badge phase-b-badge">✅ Phase B Complete</span>
+    <span class="phase-badge">✅ Backend Server Running</span>
+    
+    <p>This is a test page for the Vogo Chatbot widget with full NLP capabilities.</p>
+    
+    <h2>Phase A Features:</h2>
+    <ul>
+      <li>✅ Predefined Q&A navigation (parent_id system)</li>
+      <li>✅ Multilingual support (EN, RO, IT, FR, DE)</li>
+      <li>✅ Secure backend proxy</li>
+      <li>✅ Beautiful UI design</li>
+    </ul>
+    
+    <h2>🆕 Phase B Features:</h2>
+    <ul>
+      <li>✅ <strong>6-Step NLP Routing</strong> (Regex → Keywords → NLP → LLM → Fallback)</li>
+      <li>✅ <strong>Intent Detection</strong> - 7 intents with 23 rules</li>
+      <li>✅ <strong>Entity Extraction</strong> - Products, dates, search terms</li>
+      <li>✅ <strong>Multilingual NLP</strong> - Trained on 5 languages</li>
+      <li>✅ <strong>Search Integration</strong> - Product search API</li>
+      <li>✅ <strong>Shopping List</strong> - Add/show features</li>
+      <li>✅ <strong>Agenda</strong> - Calendar integration</li>
+      <li>✅ <strong>Confidence Scoring</strong> - Shows matching method</li>
+    </ul>
+    
+    <h2>How to Test:</h2>
+    
+    <div class="test-section">
+      <h3>1. Test Predefined Q&A (Phase A)</h3>
+      <ol>
+        <li>Look for the <span class="highlight">purple bubble</span> in the bottom-right corner</li>
+        <li>Click it to open the chat</li>
+        <li>Click on predefined questions to navigate</li>
+        <li>Try changing languages using the language buttons</li>
+      </ol>
+    </div>
+    
+    <div class="test-section">
+      <h3>2. Test NLP Intelligence (Phase B)</h3>
+      <p><strong>Type these messages to test different intents:</strong></p>
+      
+      <p><strong>Shopping List:</strong></p>
+      <div class="test-command">add milk to my shopping list</div>
+      <p>Expected: Bot responds "I'll add that to your shopping list."</p>
+      
+      <p><strong>Search Product:</strong></p>
+      <div class="test-command">I'm looking for pizza</div>
+      <p>Expected: Bot responds "Let me search for that."</p>
+      
+      <p><strong>Add to Agenda:</strong></p>
+      <div class="test-command">remind me to call mom tomorrow</div>
+      <p>Expected: Bot responds "I'll add that to your calendar."</p>
+      
+      <p><strong>Greeting:</strong></p>
+      <div class="test-command">hello</div>
+      <p>Expected: Bot responds "Hello! How can I help you today?"</p>
+      
+      <p><strong>Thanks:</strong></p>
+      <div class="test-command">thank you</div>
+      <p>Expected: Bot responds "You're welcome!"</p>
+      
+      <p><strong>Fallback (Unknown):</strong></p>
+      <div class="test-command">asdfghjkl random text</div>
+      <p>Expected: Bot responds "I'm sorry, I didn't understand that..."</p>
+    </div>
+    
+    <div class="test-section">
+      <h3>3. Test Multilingual NLP</h3>
+      <ol>
+        <li>Click the <strong>RO</strong> (Romanian) button</li>
+        <li>Type: <div class="test-command">adauga lapte in lista</div></li>
+        <li>Expected: Bot responds in Romanian</li>
+        <li>Switch back to <strong>EN</strong> to continue testing</li>
+      </ol>
+    </div>
+    
+    <div class="test-section">
+      <h3>4. Check Console Logs</h3>
+      <ol>
+        <li>Press <strong>F12</strong> on keyboard</li>
+        <li>Click <strong>"Console"</strong> tab</li>
+        <li>Look for logs like: <div class="test-command">🎯 Intent: shopping_list_add | Method: regex | Confidence: 1</div></li>
+        <li>This shows the NLP routing is working!</li>
+      </ol>
+    </div>
+    
+    <div class="note">
+      <strong>📊 Additional Testing:</strong><br>
+      Open <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> for the server dashboard with test buttons and NLP statistics.
+    </div>
+    
+    <p style="color: #666; margin-top: 40px; font-size: 14px;">
+      <strong>Note about product links:</strong> When clicking deep navigation options (like Pizza → Pepperoni), 
+      links may show 404 errors. This is expected - the chatbot is building URLs correctly, 
+      but the product pages don't exist on the website yet. This is the client's responsibility to create.
+    </p>
+  </div>
+
+  <!-- Load Chatbot CSS -->
+  <link rel="stylesheet" href="chatbot.css">
+  
+  <!-- Load Chatbot JS -->
+  <script src="chatbot.js"></script>
+</body>
+</html>

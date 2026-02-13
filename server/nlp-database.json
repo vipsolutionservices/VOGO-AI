@@ -1,0 +1,960 @@
+{
+  "rules": [
+    {
+      "id": 1,
+      "language": "en",
+      "intent": "shopping_list_add",
+      "keywords": [
+        "add to list", "save to list", "add to cart", "put in cart", "add to shopping",
+        "save to shopping", "put in list", "add item", "buy this", "purchase this",
+        "need to get", "need to buy", "pick up", "grab some", "get me", "get some",
+        "remember to buy", "don't forget to buy", "shopping for", "groceries",
+        "add to groceries", "put on list", "include in list", "throw in cart",
+        "add to my shopping list", "add to my list"
+      ],
+      "regex": "^.*(add|save|put)\\s+(to|in)\\s+(my\\s+)?(shopping\\s+)?(list|cart).*$",
+      "response": "I'll add that to your shopping list.",
+      "priority": 25,
+      "active": true
+    },
+    {
+      "id": 2,
+      "language": "en",
+      "intent": "shopping_list_show",
+      "keywords": [
+        "show shopping list", "show my list", "show list", "view shopping list", "view my list",
+        "view list", "see shopping list", "see my list", "see list", "display shopping list",
+        "display my list", "display list", "open shopping list", "open my list", "open list",
+        "check shopping list", "check my list", "check list", "what's in my cart", 
+        "what's on my list", "what do i need", "what should i buy", "what do i need to buy", 
+        "grocery list", "list of items", "shopping items", "what am i buying", 
+        "what am i shopping for", "whats in my list", "whats on my list"
+      ],
+      "regex": "^(show|view|display|see|open|check|what's|whats)\\s+(my\\s+)?(shopping\\s+)?(list|cart|groceries|items).*$",
+      "response": "Here's your shopping list.",
+      "priority": 20,
+      "active": true
+    },
+    {
+      "id": 3,
+      "language": "en",
+      "intent": "agenda_add",
+      "keywords": [
+        "remind me to", "remind me", "reminder to", "set reminder", "create reminder",
+        "add to calendar", "add to agenda", "add event", "add appointment", "add meeting",
+        "save to calendar", "save to agenda", "save event", "schedule", "schedule meeting",
+        "schedule appointment", "book appointment", "book meeting", "plan event",
+        "create event", "create meeting", "create appointment", "set appointment",
+        "don't forget to", "dont forget to", "remember to", "i need to remember",
+        "i have a meeting", "i have an appointment", "i have to go", "i will go",
+        "i'm going to", "im going to", "i'll be at", "going to the", "have to go to",
+        "meeting at", "appointment at", "event at", "call at", "call mom", "call dad"
+      ],
+     "regex": "^.*\\b(add|save|remind|schedule|set|book|plan|create|make)\\b.*\\b(calendar|agenda)\\b.*$"
+,
+      "response": "I'll add that to your calendar.",
+      "priority": 30,
+      "active": true
+    },
+    {
+      "id": 4,
+      "language": "en",
+      "intent": "agenda_show",
+      "keywords": [
+        "show calendar", "show my calendar", "show the calendar", "view calendar",
+        "view my calendar", "see calendar", "see my calendar", "display calendar",
+        "display my calendar", "open calendar", "open my calendar", "open the calendar",
+        "check calendar", "check my calendar", "show agenda", "show my agenda",
+        "view agenda", "view my agenda", "see agenda", "see my agenda", "display agenda",
+        "display my agenda", "open agenda", "open my agenda", "check agenda", "check my agenda",
+        "show schedule", "show my schedule", "view schedule", "view my schedule",
+        "see schedule", "see my schedule", "display schedule", "open schedule",
+        "open my schedule", "check schedule", "check my schedule", "my calendar",
+        "my agenda", "my schedule", "my events", "my appointments", "my meetings",
+        "what's on my calendar", "whats on my calendar", "what's on my agenda",
+        "whats on my agenda", "what's on my schedule", "whats on my schedule",
+        "what do i have today", "what do i have tomorrow", "what do i have this week",
+        "what's planned", "whats planned", "upcoming events", "upcoming appointments",
+        "upcoming meetings", "what meetings do i have", "what appointments do i have",
+        "what events do i have", "what's coming up", "whats coming up", "calendar please",
+        "agenda please", "schedule please", "list my events", "list my appointments",
+        "list my meetings", "show events", "show appointments", "show meetings"
+      ],
+      "regex": "^(?!.*\\b(add|save|remind|schedule|set|book|plan|create|make|put)\\b).*\\b(show|view|display|see|open|check|list|what's|whats)\\b.*\\b(calendar|agenda|schedule|appointments?|events?|meetings?|plans?)\\b.*$"
+,
+      "response": "Here's your agenda.",
+      "priority": 15
+,
+      "active": true
+    },
+    {
+      "id": 5,
+      "language": "en",
+      "intent": "search_product",
+      "keywords": [
+        "find", "search", "search for", "looking for", "look for", "i need", "i want",
+        "where can i find", "where can i get", "where is", "where are", "do you have",
+        "do you sell", "show me", "i'm interested in", "im interested in", "locate",
+        "available", "in stock", "can i get", "can i buy", "looking to buy",
+        "want to buy", "need to find", "help me find", "find me", "get me some"
+      ],
+      "regex": "^(?!.*(list|cart|calendar|agenda|schedule|reminder)).*\\b(find|search|looking\\s*for|look\\s*for|need|want|where|show me|interested in|locate|available|do you have|do you sell)\\b.*(product|item|food|thing|store)?.*$",
+      "response": "Let me search for that.",
+      "priority": 8,
+      "active": true
+    },
+    {
+      "id": 6,
+      "language": "en",
+      "intent": "greeting",
+      "keywords": [
+        "hello", "hi", "hey", "good morning", "good afternoon", "good evening",
+        "good night", "greetings", "howdy", "yo", "sup", "what's up", "whats up",
+        "hi there", "hey there", "hello there", "hiya", "heya", "morning", "evening",
+        "afternoon", "g'day", "gday"
+      ],
+      "regex": "^(hello|hi|hey|good\\s*(morning|evening|afternoon|night)|greetings|howdy|yo|sup|what's up|whats up|hiya|heya|g'?day)(\\s+there)?[!?.]*$",
+      "response": "Hello! How can I help you today?",
+      "priority": 5,
+      "active": true
+    },
+    {
+      "id": 7,
+      "language": "en",
+      "intent": "thanks",
+      "keywords": [
+        "thank you", "thanks", "thanks a lot", "thank you so much", "many thanks",
+        "appreciate it", "i appreciate it", "grateful", "thx", "ty", "cheers",
+        "thanks much", "much appreciated", "thanks a bunch", "thank u", "thankyou"
+      ],
+      "regex": "^.*(thank|thanks|appreciate|grateful|thx|ty|cheers).*$",
+      "response": "You're welcome! Is there anything else I can help you with?",
+      "priority": 5,
+      "active": true
+    },
+    {
+      "id": 8,
+      "language": "en",
+      "intent": "agenda_delete",
+      "keywords": [
+        "delete event", "delete appointment", "delete meeting", "delete reminder",
+        "remove event", "remove appointment", "remove meeting", "remove reminder",
+        "cancel event", "cancel appointment", "cancel meeting", "cancel reminder",
+        "delete from calendar", "remove from calendar", "cancel from calendar",
+        "delete from agenda", "remove from agenda"
+      ],
+      "regex": "^.*(delete|remove|cancel)\\s*(my\\s*)?(event|appointment|meeting|reminder|from calendar|from agenda).*$",
+      "response": "I'll remove that from your calendar.",
+      "priority": 12,
+      "active": true
+    },
+    {
+      "id": 9,
+      "language": "en",
+      "intent": "shopping_list_delete",
+      "keywords": [
+        "delete from list", "remove from list", "delete from cart", "remove from cart",
+        "take off list", "remove item", "delete item", "cross off", "mark as done",
+        "clear list", "empty cart", "remove from shopping"
+      ],
+      "regex": "^.*(delete|remove|take off|cross off|clear|empty)\\s*(my\\s*)?(from\\s*)?(list|cart|shopping|item).*$",
+      "response": "I'll remove that from your shopping list.",
+      "priority": 12,
+      "active": true
+    },
+    {
+      "id": 10,
+      "language": "ro",
+      "intent": "shopping_list_add",
+      "keywords": [
+        "adauga in lista", "adaugă în listă", "pune in lista", "pune în listă",
+        "salveaza in lista", "salvează în listă", "adauga la cumparaturi",
+        "adaugă la cumpărături", "trebuie sa cumpar", "trebuie să cumpăr",
+        "am nevoie de", "vreau sa cumpar", "vreau să cumpăr", "de cumparat",
+        "de cumpărat", "lista de cumparaturi", "listă de cumpărături",
+        "cos de cumparaturi", "coș de cumpărături", "adauga in cos", "adaugă în coș"
+      ],
+      "regex": "^(?!.*(arata|arată|vezi|afiseaza|afișează|ce am|deschide)).*\\b(adauga|adaugă|salveaza|salvează|pune|cumpara|cumpără|trebuie|nevoie|vreau)\\b.*(lista|listă|cumpărături|cumparaturi|cos|coș|magazin).*$",
+      "response": "Voi adăuga asta în lista ta de cumpărături.",
+      "priority": 10,
+      "active": true
+    },
+    {
+      "id": 11,
+      "language": "ro",
+      "intent": "shopping_list_show",
+      "keywords": [
+        "arata lista", "arată lista", "vezi lista", "afiseaza lista", "afișează lista",
+        "deschide lista", "lista mea", "ce am in lista", "ce am în listă",
+        "ce am in cos", "ce am în coș", "ce trebuie sa cumpar", "ce trebuie să cumpăr",
+        "ce am pe lista", "ce am pe listă", "arata-mi lista", "arată-mi lista",
+        "ce articole am", "lista mea de cumparaturi", "lista mea de cumpărături",
+        "vezi cumparaturile", "vezi cumpărăturile"
+      ],
+      "regex": "^.*(arata|arată|vezi|afiseaza|afișează|deschide|ce am|lista mea)\\s*(lista|listă|cumpărături|cumparaturi|cos|coș|trebuie).*$",
+      "response": "Iată lista ta de cumpărături.",
+      "priority": 15,
+      "active": true
+    },
+    {
+      "id": 12,
+      "language": "ro",
+      "intent": "agenda_add",
+      "keywords": [
+        "aminteste-mi", "amintește-mi", "reminder", "adauga in calendar",
+        "adaugă în calendar", "pune in agenda", "pune în agendă", "programeaza",
+        "programează", "seteaza reminder", "setează reminder", "nu uita",
+        "nu uita de", "nu uita să", "trebuie sa", "trebuie să", "am intalnire",
+        "am întâlnire", "am sedinta", "am ședință", "eveniment", "meeting"
+      ],
+      "regex": "^(?!.*(arata|arată|vezi|afiseaza|afișează|ce am|deschide|calendarul meu|agenda mea)).*\\b(adauga|adaugă|salveaza|salvează|aminteste|amintește|programeaza|programează|seteaza|setează|nu uita|trebuie)\\b.*(calendar|agendă|agenda|intalnire|întâlnire|sedinta|ședință|eveniment|reminder).*$",
+      "response": "Voi adăuga asta în calendarul tău.",
+      "priority": 10,
+      "active": true
+    },
+    {
+      "id": 13,
+      "language": "ro",
+      "intent": "agenda_show",
+      "keywords": [
+        "arata calendar", "arată calendar", "arata calendarul", "arată calendarul",
+        "vezi calendar", "vezi calendarul", "deschide calendar", "deschide calendarul",
+        "arata agenda", "arată agenda", "vezi agenda", "deschide agenda",
+        "afiseaza calendar", "afișează calendar", "afiseaza agenda", "afișează agenda",
+        "programul meu", "ce am azi", "ce am astazi", "ce am astăzi", "ce am maine",
+        "ce am mâine", "ce evenimente am", "ce intalniri am", "ce întâlniri am",
+        "ce am programat", "agenda mea", "calendarul meu", "ce am in agenda",
+        "ce am în agendă", "arata programul", "arată programul", "vezi programul"
+      ],
+      "regex": "^.*(arata|arată|vezi|afiseaza|afișează|deschide|ce am|programul meu|agenda mea|calendarul meu)\\s*(calendar|calendarul|agendă|agenda|program|programul|evenimente|intalniri|întâlniri|sedinte|ședințe|azi|astazi|astăzi|maine|mâine).*$",
+      "response": "Iată agenda ta.",
+      "priority": 20,
+      "active": true
+    },
+    {
+      "id": 14,
+      "language": "ro",
+      "intent": "search_product",
+      "keywords": [
+        "cauta", "caută", "gaseste", "găsește", "caut", "vreau", "am nevoie",
+        "unde gasesc", "unde găsesc", "aveti", "aveți", "arata-mi", "arată-mi",
+        "ma intereseaza", "mă interesează", "unde este", "unde e", "caut produsul"
+      ],
+      "regex": "^(?!.*(lista|listă|calendar|agendă|agenda)).*\\b(cauta|caută|gaseste|găsește|caut|vreau|nevoie|unde|arata|arată|interesează|intereseaza|aveti|aveți)\\b.*(produs|mancare|mâncare|articol|lucru)?.*$",
+      "response": "Caut pentru tine.",
+      "priority": 8,
+      "active": true
+    },
+    {
+      "id": 15,
+      "language": "ro",
+      "intent": "greeting",
+      "keywords": [
+        "salut", "buna", "bună", "buna ziua", "bună ziua", "buna seara", "bună seara",
+        "buna dimineata", "bună dimineața", "hey", "ce faci", "noroc", "salutare",
+        "neata", "servus"
+      ],
+      "regex": "^(salut|buna|bună|hey|noroc|ce faci|neata|servus|salutare)(\\s+ziua|\\s+seara|\\s+dimineata|\\s+dimineața)?[!?.]*$",
+      "response": "Bună! Cu ce te pot ajuta astăzi?",
+      "priority": 5,
+      "active": true
+    },
+    {
+      "id": 16,
+      "language": "ro",
+      "intent": "thanks",
+      "keywords": [
+        "multumesc", "mulțumesc", "mersi", "multumiri", "mulțumiri", "ms",
+        "multumesc mult", "mulțumesc mult", "mersi mult", "apreciez"
+      ],
+      "regex": "^.*(multumesc|mulțumesc|mersi|multumiri|mulțumiri|ms|apreciez).*$",
+      "response": "Cu plăcere! Mai pot să te ajut cu ceva?",
+      "priority": 5,
+      "active": true
+    },
+    {
+      "id": 17,
+      "language": "it",
+      "intent": "shopping_list_add",
+      "keywords": [
+        "aggiungi alla lista", "aggiungi al carrello", "metti nella lista",
+        "salva nella lista", "lista della spesa", "devo comprare", "devo prendere",
+        "ho bisogno di", "voglio comprare", "da comprare"
+      ],
+      "regex": "^(?!.*(mostra|vedi|visualizza|apri|cosa ho)).*\\b(aggiungi|aggiungere|salva|metti|compra|comprare|acquista|acquistare|prendere|bisogno|voglio)\\b.*(lista|spesa|carrello|mercato).*$",
+      "response": "Lo aggiungerò alla tua lista della spesa.",
+      "priority": 10,
+      "active": true
+    },
+    {
+      "id": 18,
+      "language": "it",
+      "intent": "shopping_list_show",
+      "keywords": [
+        "mostra lista", "vedi lista", "visualizza lista", "apri lista",
+        "la mia lista", "cosa ho nella lista", "cosa devo comprare",
+        "lista della spesa", "mostrami la lista"
+      ],
+      "regex": "^.*(mostra|vedi|visualizza|apri|cosa ho|la mia)\\s*(lista|spesa|carrello).*$",
+      "response": "Ecco la tua lista della spesa.",
+      "priority": 15,
+      "active": true
+    },
+    {
+      "id": 19,
+      "language": "it",
+      "intent": "agenda_add",
+      "keywords": [
+        "ricordami", "aggiungi al calendario", "metti in agenda", "programma",
+        "appuntamento", "riunione", "evento", "promemoria", "non dimenticare"
+      ],
+      "regex": "^(?!.*(mostra|vedi|visualizza|apri|cosa ho|il mio calendario|la mia agenda)).*\\b(aggiungi|ricordami|programma|metti|crea|non dimenticare)\\b.*(calendario|agenda|appuntamento|riunione|evento|promemoria).*$",
+      "response": "Lo aggiungerò al tuo calendario.",
+      "priority": 10,
+      "active": true
+    },
+    {
+      "id": 20,
+      "language": "it",
+      "intent": "agenda_show",
+      "keywords": [
+        "mostra calendario", "vedi calendario", "apri calendario", "mostra agenda",
+        "vedi agenda", "apri agenda", "il mio calendario", "la mia agenda",
+        "cosa ho oggi", "cosa ho domani", "i miei appuntamenti", "i miei eventi"
+      ],
+      "regex": "^.*(mostra|vedi|visualizza|apri|cosa ho|il mio|la mia)\\s*(calendario|agenda|appuntamenti|eventi|programma).*$",
+      "response": "Ecco la tua agenda.",
+      "priority": 20,
+      "active": true
+    },
+    {
+      "id": 21,
+      "language": "it",
+      "intent": "search_product",
+      "keywords": [
+        "cerca", "trova", "cerco", "voglio", "dove trovo", "avete", "mostrami",
+        "mi serve", "mi interessa", "sto cercando"
+      ],
+      "regex": "^(?!.*(lista|calendario|agenda)).*\\b(cerca|cercare|trova|trovare|cerco|voglio|dove|avete|mostra|mostrami|serve|interessa)\\b.*(prodotto|cibo|articolo)?.*$",
+      "response": "Cerco per te.",
+      "priority": 8,
+      "active": true
+    },
+    {
+      "id": 22,
+      "language": "it",
+      "intent": "greeting",
+      "keywords": [
+        "ciao", "salve", "buongiorno", "buonasera", "buon pomeriggio", "ehi", "come va"
+      ],
+      "regex": "^(ciao|salve|buongiorno|buonasera|buon pomeriggio|ehi|come va)[!?.]*$",
+      "response": "Ciao! Come posso aiutarti oggi?",
+      "priority": 5,
+      "active": true
+    },
+    {
+      "id": 23,
+      "language": "fr",
+      "intent": "shopping_list_add",
+      "keywords": [
+        "ajouter à la liste", "ajouter au panier", "mettre dans la liste",
+        "liste de courses", "j'ai besoin de", "je dois acheter", "à acheter"
+      ],
+      "regex": "^(?!.*(montre|voir|affiche|ouvre|qu'est-ce que j'ai)).*\\b(ajouter|ajoute|sauvegarder|mettre|acheter|prendre|besoin)\\b.*(liste|courses|panier|marché).*$",
+      "response": "Je vais l'ajouter à votre liste de courses.",
+      "priority": 10,
+      "active": true
+    },
+    {
+      "id": 24,
+      "language": "fr",
+      "intent": "shopping_list_show",
+      "keywords": [
+        "montre la liste", "voir la liste", "affiche la liste", "ouvre la liste",
+        "ma liste", "qu'est-ce que j'ai dans la liste", "liste de courses"
+      ],
+      "regex": "^.*(montre|voir|affiche|ouvre|qu'est-ce que j'ai|ma)\\s*(liste|courses|panier).*$",
+      "response": "Voici votre liste de courses.",
+      "priority": 15,
+      "active": true
+    },
+    {
+      "id": 25,
+      "language": "fr",
+      "intent": "agenda_add",
+      "keywords": [
+        "rappelle-moi", "ajouter au calendrier", "mettre dans l'agenda",
+        "programmer", "rendez-vous", "réunion", "événement", "rappel", "n'oublie pas"
+      ],
+      "regex": "^(?!.*(montre|voir|affiche|ouvre|qu'est-ce que j'ai|mon calendrier|mon agenda)).*\\b(ajouter|rappelle|programmer|mettre|créer|n'oublie pas)\\b.*(calendrier|agenda|rendez-vous|réunion|événement|rappel).*$",
+      "response": "Je vais l'ajouter à votre calendrier.",
+      "priority": 10,
+      "active": true
+    },
+    {
+      "id": 26,
+      "language": "fr",
+      "intent": "agenda_show",
+      "keywords": [
+        "montre le calendrier", "voir le calendrier", "ouvre le calendrier",
+        "montre l'agenda", "voir l'agenda", "ouvre l'agenda", "mon calendrier",
+        "mon agenda", "qu'est-ce que j'ai aujourd'hui", "mes rendez-vous", "mes événements"
+      ],
+      "regex": "^.*(montre|voir|affiche|ouvre|qu'est-ce que j'ai|mon)\\s*(calendrier|agenda|rendez-vous|événements|programme).*$",
+      "response": "Voici votre agenda.",
+      "priority": 20,
+      "active": true
+    },
+    {
+      "id": 27,
+      "language": "fr",
+      "intent": "search_product",
+      "keywords": [
+        "chercher", "trouver", "je cherche", "je veux", "où trouver", "avez-vous",
+        "montrez-moi", "j'ai besoin"
+      ],
+      "regex": "^(?!.*(liste|calendrier|agenda)).*\\b(chercher|trouver|cherche|veux|où|avez|montrez|montrez-moi|besoin|intéresse)\\b.*(produit|nourriture|article)?.*$",
+      "response": "Je cherche pour vous.",
+      "priority": 8,
+      "active": true
+    },
+    {
+      "id": 28,
+      "language": "fr",
+      "intent": "greeting",
+      "keywords": [
+        "bonjour", "salut", "bonsoir", "hey", "comment ça va", "coucou"
+      ],
+      "regex": "^(bonjour|salut|bonsoir|hey|comment ça va|coucou)[!?.]*$",
+      "response": "Bonjour! Comment puis-je vous aider aujourd'hui?",
+      "priority": 5,
+      "active": true
+    },
+    {
+      "id": 29,
+      "language": "de",
+      "intent": "shopping_list_add",
+      "keywords": [
+        "zur liste hinzufügen", "in den warenkorb", "auf die liste",
+        "einkaufsliste", "ich brauche", "ich muss kaufen", "zu kaufen"
+      ],
+      "regex": "^(?!.*(zeig|anzeigen|öffne|was habe ich)).*\\b(hinzufügen|hinzu|speichern|kaufen|einkaufen|brauche|muss)\\b.*(liste|einkauf|warenkorb|markt|laden).*$",
+      "response": "Ich füge das zu Ihrer Einkaufsliste hinzu.",
+      "priority": 10,
+      "active": true
+    },
+    {
+      "id": 30,
+      "language": "de",
+      "intent": "shopping_list_show",
+      "keywords": [
+        "zeig die liste", "zeige die liste", "öffne die liste", "meine liste",
+        "was habe ich auf der liste", "einkaufsliste anzeigen", "was muss ich kaufen"
+      ],
+      "regex": "^.*(zeig|zeige|anzeigen|öffne|was habe ich|meine)\\s*(liste|einkauf|warenkorb).*$",
+      "response": "Hier ist Ihre Einkaufsliste.",
+      "priority": 15,
+      "active": true
+    },
+    {
+      "id": 31,
+      "language": "de",
+      "intent": "agenda_add",
+      "keywords": [
+        "erinnere mich", "zum kalender hinzufügen", "in die agenda",
+        "termin", "besprechung", "ereignis", "erinnerung", "vergiss nicht"
+      ],
+      "regex": "^(?!.*(zeig|anzeigen|öffne|was habe ich|mein kalender|meine agenda)).*\\b(hinzufügen|erinnere|planen|erstellen|vergiss nicht)\\b.*(kalender|agenda|termin|besprechung|ereignis|erinnerung).*$",
+      "response": "Ich füge das zu Ihrem Kalender hinzu.",
+      "priority": 10,
+      "active": true
+    },
+    {
+      "id": 32,
+      "language": "de",
+      "intent": "agenda_show",
+      "keywords": [
+        "zeig den kalender", "zeige den kalender", "öffne den kalender",
+        "zeig die agenda", "zeige die agenda", "öffne die agenda",
+        "mein kalender", "meine agenda", "was habe ich heute", "meine termine"
+      ],
+      "regex": "^.*(zeig|zeige|anzeigen|öffne|was habe ich|mein|meine)\\s*(kalender|agenda|termine|ereignisse|programm).*$",
+      "response": "Hier ist Ihre Agenda.",
+      "priority": 20,
+      "active": true
+    },
+    {
+      "id": 33,
+      "language": "de",
+      "intent": "search_product",
+      "keywords": [
+        "suchen", "finden", "ich suche", "ich brauche", "wo finde ich",
+        "haben sie", "zeigen sie mir"
+      ],
+      "regex": "^(?!.*(liste|kalender|agenda)).*\\b(suchen|finden|suche|brauche|wo|haben|zeigen|zeig mir|interessiert)\\b.*(produkt|essen|artikel)?.*$",
+      "response": "Ich suche für Sie.",
+      "priority": 8,
+      "active": true
+    },
+    {
+      "id": 34,
+      "language": "de",
+      "intent": "greeting",
+      "keywords": [
+        "hallo", "guten tag", "guten morgen", "guten abend", "hey", "wie geht's",
+        "moin", "servus", "grüß gott"
+      ],
+      "regex": "^(hallo|guten\\s*(tag|morgen|abend)|hey|wie geht|moin|servus|grüß gott)[!?.'s]*$",
+      "response": "Hallo! Wie kann ich Ihnen heute helfen?",
+      "priority": 5,
+      "active": true
+    }
+  ],
+  
+  "training_data": {
+    "en": {
+      "shopping_list_add": [
+        "add milk to my shopping list",
+        "save bread to my list",
+        "add eggs to cart",
+        "I need to add butter to my shopping list",
+        "put cheese in my cart",
+        "add tomatoes to my list",
+        "save pasta to shopping list",
+        "I need to buy milk",
+        "remember to get eggs",
+        "I want to purchase bread",
+        "can you add bananas to my list",
+        "put apples in my shopping cart",
+        "I need to get some chicken",
+        "add rice to my groceries",
+        "I'm shopping for vegetables",
+        "need to pick up oranges",
+        "grab some water for me",
+        "add coffee to the list",
+        "I should buy tea",
+        "put flour in my cart",
+        "shopping list: sugar",
+        "to buy: olive oil",
+        "add to shopping list: chocolate",
+        "I need batteries",
+        "get me some soap",
+        "throw milk in the cart",
+        "include bread on my list",
+        "don't forget to buy eggs",
+        "add cereal please",
+        "put juice on the shopping list"
+      ],
+      "shopping_list_show": [
+        "show my shopping list",
+        "what's in my cart",
+        "view my list",
+        "display my shopping list",
+        "what do I need to buy",
+        "what should I get from the store",
+        "check my grocery list",
+        "see my shopping items",
+        "what's on my list",
+        "show me what I need",
+        "list my items",
+        "what am I shopping for",
+        "my shopping cart please",
+        "view shopping list",
+        "check what I need to get",
+        "open my shopping list",
+        "open my list",
+        "open list",
+        "show list",
+        "see list",
+        "my list please",
+        "display list",
+        "what do i need to get",
+        "shopping items please",
+        "let me see my list"
+      ],
+      "agenda_add": [
+        "remind me to call mom tomorrow",
+        "add meeting to my calendar",
+        "schedule appointment for friday",
+        "save event to my agenda",
+        "set reminder for dentist appointment",
+        "add conference call to calendar",
+        "I have a meeting at 3pm",
+        "schedule lunch with john",
+        "reminder: pick up kids at 5",
+        "don't forget to submit report",
+        "meeting on monday at 10am",
+        "appointment with doctor next week",
+        "add birthday party to calendar",
+        "schedule gym session",
+        "reminder for team standup",
+        "I need to remember the presentation",
+        "set an alarm for 8am meeting",
+        "book time for project review",
+        "plan dinner with friends",
+        "create event for webinar",
+        "remind me to call dad",
+        "remind me about the meeting",
+        "schedule a call for tomorrow",
+        "add dentist to my calendar",
+        "don't forget the doctor",
+        "I'm going to the gym tomorrow",
+        "I have to go to work at 9",
+        "meeting at 2pm",
+        "appointment at noon",
+        "remind me at 5pm"
+      ],
+      "agenda_show": [
+        "show my calendar",
+        "what's on my agenda",
+        "view my schedule",
+        "display my calendar",
+        "what do I have today",
+        "what's planned for tomorrow",
+        "check my appointments",
+        "see my events",
+        "what meetings do I have",
+        "show my schedule for the week",
+        "list my events",
+        "what's coming up",
+        "my agenda please",
+        "what's on my schedule",
+        "check my calendar",
+        "open calendar",
+        "open my calendar",
+        "open the calendar",
+        "open agenda",
+        "open my agenda",
+        "open the agenda",
+        "open schedule",
+        "open my schedule",
+        "show calendar",
+        "show agenda",
+        "show schedule",
+        "view calendar",
+        "view agenda",
+        "see calendar",
+        "see agenda",
+        "display agenda",
+        
+        "calendar please",
+        "agenda please",
+        "schedule please",
+        "what appointments do i have",
+        "upcoming events",
+        "upcoming meetings",
+        "whats coming up"
+      ],
+      "search_product": [
+        "I'm looking for pizza",
+        "find me some pasta",
+        "search for tomatoes",
+        "I need cheese",
+        "where can I find bread",
+        "I want to buy milk",
+        "looking for fresh vegetables",
+        "do you have apples",
+        "show me your coffee selection",
+        "I'm interested in organic food",
+        "where is the chicken",
+        "can I see your fruits",
+        "I want some chocolate",
+        "find rice for me",
+        "do you sell eggs",
+        "I need cleaning products",
+        "show me beverages",
+        "looking for snacks",
+        "where can I get water",
+        "I want to buy tea",
+        "help me find shampoo",
+        "looking to buy soap",
+        "can i get some bread",
+        "find me something for dinner"
+      ],
+      "greeting": [
+        "hello",
+        "hi",
+        "hey",
+        "good morning",
+        "good evening",
+        "good afternoon",
+        "hi there",
+        "hey there",
+        "greetings",
+        "howdy",
+        "yo",
+        "sup",
+        "what's up",
+        "hello there",
+        "hiya",
+        "heya",
+        "morning",
+        "evening",
+        "afternoon",
+        "g'day"
+      ],
+      "thanks": [
+        "thank you",
+        "thanks",
+        "thanks a lot",
+        "I appreciate it",
+        "thank you so much",
+        "thx",
+        "ty",
+        "many thanks",
+        "appreciate it",
+        "cheers",
+        "thanks much",
+        "much appreciated",
+        "thanks a bunch"
+      ]
+    },
+    "ro": {
+      "shopping_list_add": [
+        "adauga lapte in lista de cumparaturi",
+        "salveaza paine in lista",
+        "adauga oua in cos",
+        "pune branza in lista mea",
+        "adauga rosii la cumparaturi",
+        "trebuie sa cumpar lapte",
+        "am nevoie de paine",
+        "vreau sa cumpar oua",
+        "pune mere in cos",
+        "adauga cafea la lista",
+        "trebuie sa iau legume",
+        "am nevoie de carne",
+        "vreau banane",
+        "lista de cumparaturi: zahar",
+        "de cumparat: ulei"
+      ],
+      "shopping_list_show": [
+        "arata lista de cumparaturi",
+        "ce am in cos",
+        "vezi lista mea",
+        "ce trebuie sa cumpar",
+        "ce am pe lista",
+        "arata-mi lista",
+        "ce articole am",
+        "lista mea de cumparaturi",
+        "deschide lista",
+        "deschide lista mea",
+        "vezi cumparaturile"
+      ],
+      "agenda_add": [
+        "aminteste-mi sa sun mama maine",
+        "adauga intalnire in calendar",
+        "programeaza pentru vineri",
+        "pune eveniment in agenda",
+        "am sedinta la 3",
+        "intalnire cu doctorul",
+        "nu uita de raport",
+        "reminder: ridicat copii",
+        "meeting luni la 10",
+        "programeaza sport"
+      ],
+      "agenda_show": [
+        "arata calendarul",
+        "ce am in agenda",
+        "vezi programul meu",
+        "ce am azi",
+        "ce evenimente am",
+        "arata programul",
+        "ce intalniri am",
+        "vezi agenda",
+        "deschide calendar",
+        "deschide calendarul",
+        "deschide agenda",
+        "deschide agenda mea",
+        "calendarul meu",
+        "agenda mea",
+        "programul meu"
+      ],
+      "search_product": [
+        "caut pizza",
+        "gaseste-mi paste",
+        "vreau rosii",
+        "am nevoie de branza",
+        "unde gasesc paine",
+        "caut legume",
+        "aveti mere",
+        "arata-mi cafea",
+        "vreau ciocolata",
+        "unde e carnea",
+        "caut oua"
+      ],
+      "greeting": [
+        "salut",
+        "buna",
+        "buna ziua",
+        "buna seara",
+        "hey",
+        "ce faci",
+        "noroc",
+        "salutare",
+        "neata",
+        "servus"
+      ],
+      "thanks": [
+        "multumesc",
+        "mersi",
+        "multumesc mult",
+        "ms",
+        "multumiri"
+      ]
+    },
+    "it": {
+      "shopping_list_add": [
+        "aggiungi latte alla lista",
+        "salva pane nella lista",
+        "aggiungi uova al carrello",
+        "devo comprare burro",
+        "mi serve formaggio",
+        "aggiungi pomodori",
+        "voglio pasta",
+        "ho bisogno di riso"
+      ],
+      "shopping_list_show": [
+        "mostra la lista",
+        "vedi la lista",
+        "apri la lista",
+        "la mia lista",
+        "cosa ho nella lista",
+        "cosa devo comprare"
+      ],
+      "agenda_add": [
+        "ricordami di chiamare",
+        "aggiungi riunione al calendario",
+        "programma appuntamento",
+        "metti evento in agenda",
+        "non dimenticare il dottore"
+      ],
+      "agenda_show": [
+        "mostra il calendario",
+        "apri il calendario",
+        "vedi l'agenda",
+        "apri l'agenda",
+        "il mio calendario",
+        "la mia agenda",
+        "cosa ho oggi",
+        "i miei appuntamenti"
+      ],
+      "search_product": [
+        "cerco pizza",
+        "trova pasta",
+        "voglio pomodori",
+        "dove trovo pane",
+        "avete mele",
+        "mi serve caffè",
+        "cerca cioccolato"
+      ],
+      "greeting": [
+        "ciao",
+        "buongiorno",
+        "buonasera",
+        "salve",
+        "ehi",
+        "come va"
+      ]
+    },
+    "fr": {
+      "shopping_list_add": [
+        "ajouter du lait à ma liste",
+        "sauvegarder du pain dans la liste",
+        "ajouter des oeufs au panier",
+        "j'ai besoin de beurre",
+        "je veux du fromage",
+        "ajouter des tomates",
+        "je dois acheter des pâtes"
+      ],
+      "shopping_list_show": [
+        "montre la liste",
+        "voir la liste",
+        "ouvre la liste",
+        "ma liste",
+        "qu'est-ce que j'ai dans la liste"
+      ],
+      "agenda_add": [
+        "rappelle-moi d'appeler",
+        "ajouter réunion au calendrier",
+        "programmer rendez-vous",
+        "n'oublie pas le docteur"
+      ],
+      "agenda_show": [
+        "montre le calendrier",
+        "ouvre le calendrier",
+        "voir l'agenda",
+        "ouvre l'agenda",
+        "mon calendrier",
+        "mon agenda",
+        "qu'est-ce que j'ai aujourd'hui",
+        "mes rendez-vous"
+      ],
+      "search_product": [
+        "je cherche une pizza",
+        "trouver des pâtes",
+        "je veux des tomates",
+        "où trouver du pain",
+        "avez-vous des pommes",
+        "chercher du café"
+      ],
+      "greeting": [
+        "bonjour",
+        "salut",
+        "bonsoir",
+        "hey",
+        "comment ça va",
+        "coucou"
+      ]
+    },
+    "de": {
+      "shopping_list_add": [
+        "milch zur liste hinzufügen",
+        "brot in der liste speichern",
+        "eier zum warenkorb hinzufügen",
+        "ich brauche butter",
+        "ich möchte käse",
+        "tomaten hinzufügen",
+        "ich muss nudeln kaufen"
+      ],
+      "shopping_list_show": [
+        "zeig die liste",
+        "öffne die liste",
+        "meine liste",
+        "was habe ich auf der liste"
+      ],
+      "agenda_add": [
+        "erinnere mich anzurufen",
+        "besprechung zum kalender hinzufügen",
+        "termin planen",
+        "vergiss nicht den arzt"
+      ],
+      "agenda_show": [
+        "zeig den kalender",
+        "öffne den kalender",
+        "zeig die agenda",
+        "öffne die agenda",
+        "mein kalender",
+        "meine agenda",
+        "was habe ich heute",
+        "meine termine"
+      ],
+      "search_product": [
+        "ich suche pizza",
+        "finde pasta",
+        "ich brauche tomaten",
+        "wo finde ich brot",
+        "haben sie äpfel",
+        "zeig mir kaffee"
+      ],
+      "greeting": [
+        "hallo",
+        "guten tag",
+        "guten morgen",
+        "hey",
+        "wie geht's",
+        "moin",
+        "servus"
+      ]
+    }
+  }
+}
